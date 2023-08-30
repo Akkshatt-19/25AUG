@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_062216) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_181512) do
   create_table "blocks", force: :cascade do |t|
     t.integer "blocker_id"
     t.integer "blocked_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_062216) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "fname"
     t.string "lname"
     t.datetime "created_at", null: false

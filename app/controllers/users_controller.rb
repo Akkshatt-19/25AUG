@@ -1,7 +1,12 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController 
+  skip_before_action :authenticate_user, only: [:create]
+  before_action :find_user, only: [:show, :update, :destroy]
+  
+  
+  
   def index
     @users=User.all
-    render json: @users
+    render json: @users, status: :ok
   end
   
   def new
@@ -37,10 +42,10 @@ class UsersController < ApplicationController
   
   private def user_params
     params.permit(
-      :email,
-      :password,
-      :fname,
-      :lname
+    :email,
+    :password,
+    :fname,
+    :lname
     )
   end
   
