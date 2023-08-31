@@ -6957,3 +6957,201 @@ Processing by UsersController#follow as */*
 Completed 200 OK in 28ms (Views: 5.0ms | ActiveRecord: 11.2ms | Allocations: 9713)
 
 
+Started POST "/users/1/follow" for 127.0.0.1 at 2023-08-31 16:17:41 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 1], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+Completed 422 Unprocessable Entity in 48ms (ActiveRecord: 1.8ms | Allocations: 29540)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Follower has already been taken, Followee has already been taken):
+  
+app/controllers/users_controller.rb:44:in `follow'
+Started POST "/users/2/unfollow" for 127.0.0.1 at 2023-08-31 16:17:54 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+  [1m[36mFollow Destroy (0.3ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `unfollow'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `unfollow'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `unfollow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (28.69ms)
+Completed 200 OK in 54ms (Views: 34.7ms | ActiveRecord: 12.2ms | Allocations: 22311)
+
+
+Started POST "/users/1/follow" for 127.0.0.1 at 2023-08-31 16:18:05 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 1], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+Completed 422 Unprocessable Entity in 9ms (ActiveRecord: 0.5ms | Allocations: 6741)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Follower has already been taken, Followee has already been taken):
+  
+app/controllers/users_controller.rb:44:in `follow'
+Started POST "/users/17/follow" for 127.0.0.1 at 2023-08-31 17:01:59 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 14ms (Views: 1.7ms | ActiveRecord: 0.5ms | Allocations: 10890)
+
+
+Started PUT "/users/2" for 127.0.0.1 at 2023-08-31 18:14:08 +0530
+Processing by UsersController#update as */*
+  Parameters: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8aa50560 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-5i6rij.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameters: :profile_picture, :id. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007fefa1b96688>, params: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8aa50560 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-5i6rij.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Akshatp@shriffle.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 404 Not Found in 37ms (Views: 1.2ms | ActiveRecord: 0.8ms | Allocations: 14677)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2023-08-31 18:14:28 +0530
+Processing by UsersController#update as */*
+  Parameters: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8aa59d90 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-hr0o3a.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameters: :profile_picture, :id. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007fef8ae71860>, params: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8aa59d90 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-hr0o3a.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Akshatp@shriffle.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 404 Not Found in 5ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 3818)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2023-08-31 18:15:42 +0530
+Processing by UsersController#update as */*
+  Parameters: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8aadf828 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-ug8c92.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameters: :profile_picture, :id. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007fefa003fb50>, params: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8aadf828 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-ug8c92.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Akshatp@shriffle.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 404 Not Found in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3812)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2023-08-31 18:17:32 +0530
+Processing by UsersController#update as */*
+  Parameters: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fefa0a032b8 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-foo5nf.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameters: :profile_picture, :id. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007fefa1bcc9e0>, params: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fefa0a032b8 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-foo5nf.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Akshatp@shriffle.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.4ms | Allocations: 13065)
+
+
+  
+NoMethodError (undefined method `image' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/users_controller.rb:32:in `update'
+Started PATCH "/users/2" for 127.0.0.1 at 2023-08-31 18:19:18 +0530
+Processing by UsersController#update as */*
+  Parameters: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8ae647a0 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-ntouwv.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/Home/app/controllers/application_controller.rb:5)
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x00007fef8aed65f8>, params: {"profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fef8ae647a0 @tempfile=#<Tempfile:/tmp/RackMultipart20230831-39161-ntouwv.jpg>, @content_type="image/jpeg", @original_filename="img.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"img.jpg\"\r\nContent-Type: image/jpeg\r\n">, "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Akshatp@shriffle.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "16zxpx1gfckapl9hof29015dflnx"], ["filename", "img.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 59084], ["checksum", "X85LVt2yMT6/kdyXv5+b3w=="], ["created_at", "2023-08-31 12:49:18.512688"]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profile_picture"], ["record_type", "User"], ["record_id", 2], ["blob_id", 1], ["created_at", "2023-08-31 12:49:18.514838"]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-31 12:49:18.516622"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update'
+[36m  Disk Storage (0.5ms) [0m[32mUploaded file to key: 16zxpx1gfckapl9hof29015dflnx (checksum: X85LVt2yMT6/kdyXv5+b3w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: f4918eaa-6220-433f-9510-5d47f6dfc29c) to Async(default) with arguments: #<GlobalID:0x00007fef8ac99830 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/1>>
+[active_model_serializers] [36m  Disk Storage (2.7ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1VpRDJsdFlXZGxMMnB3WldjNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTMxVDEyOjU0OjE4LjUzOVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--d2f24b323fc6c786d66b3f587d087f9c4e8c31b3/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:32:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (15.54ms)
+Completed 200 OK in 127ms (Views: 16.8ms | ActiveRecord: 16.3ms | Allocations: 50004)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c] Performing ActiveStorage::AnalyzeJob (Job ID: f4918eaa-6220-433f-9510-5d47f6dfc29c) from Async(default) enqueued at 2023-08-31T12:49:18Z with arguments: #<GlobalID:0x00007fef8acc5520 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c]   [1m[36mTRANSACTION (27.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4918eaa-6220-433f-9510-5d47f6dfc29c] Performed ActiveStorage::AnalyzeJob (Job ID: f4918eaa-6220-433f-9510-5d47f6dfc29c) from Async(default) in 149.68ms
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1VpRDJsdFlXZGxMMnB3WldjNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTMxVDEyOjU0OjE4LjUzOVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--d2f24b323fc6c786d66b3f587d087f9c4e8c31b3/img.jpg" for 127.0.0.1 at 2023-08-31 18:19:25 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"img"}
+Completed 200 OK in 7ms (ActiveRecord: 0.0ms | Allocations: 1585)
+
+

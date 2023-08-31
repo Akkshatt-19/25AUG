@@ -17,13 +17,9 @@ class UsersController < ApplicationController
     render json: @current_user
   end
   
-  def new
-    @user=User.new
-  end
-  
   def create
-    @user =User.new(user_params)
-    if @user.save
+    user =User.new(user_params)
+    if user.save
       render json: @user, status: 201
     else
       render json: {error: @user.errors.full.messages}, status: 400
@@ -40,15 +36,15 @@ class UsersController < ApplicationController
   end
   
   def follow
-    @user = User.find(params[:id])
-    current_user.followees << @user
-    render json: @user
+    user = User.find(params[:id])
+    current_user.followees << user
+    render json: user
   end
   
   def unfollow
     @user = User.find(params[:id])
     current_user.followed_users.find_by(followee_id: @user.id).destroy
-    render json: @user
+    render json: user
   end
   
   private def user_params
@@ -56,7 +52,8 @@ class UsersController < ApplicationController
     :email,
     :password,
     :fname,
-    :lname
+    :lname,
+    :profile_picture  
     )
   end
   

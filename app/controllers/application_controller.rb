@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::API
   
   before_action :authenticate_request
-  
+  before_action do
+    ActiveStorage::Current.host = request.base_url
+  end
   private
   def authenticate_request
     begin
@@ -21,7 +23,8 @@ class ApplicationController < ActionController::API
     @current_user
   end
   
-  def render_404
-    render json: { error: "Record not Found"}, status: :not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_exception
+  def handle_exception
+    render json: { error: 'Record not found' }
   end
 end
