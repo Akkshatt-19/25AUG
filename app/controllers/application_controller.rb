@@ -20,4 +20,8 @@ class ApplicationController < ActionController::API
   def current_user
     @current_user
   end
+  
+  def render_404
+    render json: { error: "Record not Found"}, status: :not_found
+  end
 end

@@ -5306,3 +5306,1654 @@ Processing by UsersController#login as */*
 Completed 200 OK in 239ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 792)
 
 
+Started POST "/users/2/posts" for 127.0.0.1 at 2023-08-31 13:08:48 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello i am second user and its my post", "image"=>"user2.jpeg", "user_id"=>"2", "post"=>{"content"=>"Hello i am second user and its my post", "image"=>"user2.jpeg"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameter: :post. Context: { controller: PostsController, action: create, request: #<ActionDispatch::Request:0x00007fcbcca66540>, params: {"content"=>"Hello i am second user and its my post", "image"=>"user2.jpeg", "controller"=>"posts", "action"=>"create", "user_id"=>"2", "post"=>{"content"=>"Hello i am second user and its my post", "image"=>"user2.jpeg"}} }[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Hello i am second user and its my post"], ["image", "user2.jpeg"], ["user_id", 2], ["created_at", "2023-08-31 07:38:48.240730"], ["updated_at", "2023-08-31 07:38:48.240730"]]
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 201 Created in 27ms (Views: 1.4ms | ActiveRecord: 12.3ms | Allocations: 7051)
+
+
+Started GET "/users/2/posts" for 127.0.0.1 at 2023-08-31 13:09:00 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/posts"):
+  
+Started GET "/users/2/posts/" for 127.0.0.1 at 2023-08-31 13:09:13 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/posts"):
+  
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 13:09:28 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/posts"):
+  
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 13:13:04 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/posts"):
+  
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 13:13:23 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/posts"):
+  
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 13:13:34 +0530
+Processing by UsersController#user_post as */*
+  Parameters: {"user_id"=>"1"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 2643)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 13:15:50 +0530
+Processing by UsersController#user_post as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 2]]
+  ↳ app/controllers/users_controller.rb:45:in `user_post'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/controllers/users_controller.rb:46:in `user_post'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:49:in `user_post'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 40ms (Views: 4.1ms | ActiveRecord: 2.1ms | Allocations: 23005)
+
+
+Started GET "/users/2/posts" for 127.0.0.1 at 2023-08-31 13:16:06 +0530
+Processing by UsersController#user_post as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 2]]
+  ↳ app/controllers/users_controller.rb:45:in `user_post'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/controllers/users_controller.rb:46:in `user_post'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:49:in `user_post'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 3166)
+
+
+Started GET "/users/2/posts" for 127.0.0.1 at 2023-08-31 13:16:59 +0530
+Processing by UsersController#user_post as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 2]]
+  ↳ app/controllers/users_controller.rb:45:in `user_post'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/controllers/users_controller.rb:46:in `user_post'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:49:in `user_post'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 3163)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 13:17:17 +0530
+Processing by UsersController#user_post as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 2]]
+  ↳ app/controllers/users_controller.rb:45:in `user_post'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/controllers/users_controller.rb:46:in `user_post'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:49:in `user_post'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 3163)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-08-31 13:21:02 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.0ms | Allocations: 8429)
+
+
+  
+NoMethodError (undefined method `find_user' for #<UsersController:0x0000000005cc88>):
+  
+activesupport (7.0.7) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.7) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.7) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/user/login?email=Sachinp@shriffle.com&password=[FILTERED]" for 127.0.0.1 at 2023-08-31 13:22:04 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"Sachinp@shriffle.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "Sachinp@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 241ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 3086)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-08-31 13:22:40 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 906)
+
+
+  
+NoMethodError (undefined method `find_user' for #<UsersController:0x0000000005cd78>):
+  
+activesupport (7.0.7) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.7) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.7) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.7) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.7) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/1" for 127.0.0.1 at 2023-08-31 13:23:36 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 1]]
+  ↳ app/controllers/users_controller.rb:57:in `show'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/users_controller.rb:58:in `show'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:61:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 26ms (Views: 4.0ms | ActiveRecord: 1.8ms | Allocations: 16884)
+
+
+Started POST "/users/1/posts/5/comments" for 127.0.0.1 at 2023-08-31 13:27:19 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"content"=>"Very Good", "user_id"=>"1", "post_id"=>"5", "comment"=>{"content"=>"Very Good"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms | Allocations: 2581)
+
+
+Started GET "/users/1/posts/5/comments" for 127.0.0.1 at 2023-08-31 13:27:19 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"1", "post_id"=>"5"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 464)
+
+
+Started PATCH "/users/1/posts/5/comments/6" for 127.0.0.1 at 2023-08-31 13:27:19 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"6", "comment"=>{"content"=>"Not that Nice"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 465)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-08-31 13:33:08 +0530
+Processing by PostsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 14ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 2618)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-08-31 13:33:34 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 52ms (Views: 4.7ms | ActiveRecord: 0.6ms | Allocations: 11814)
+
+
+Started POST "/users/1/posts" for 127.0.0.1 at 2023-08-31 14:20:04 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"my post", "image"=>"user1.jpeg", "user_id"=>"1", "post"=>{"content"=>"my post", "image"=>"user1.jpeg"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameter: :post. Context: { controller: PostsController, action: create, request: #<ActionDispatch::Request:0x00007fcbcc744ce0>, params: {"content"=>"my post", "image"=>"user1.jpeg", "controller"=>"posts", "action"=>"create", "user_id"=>"1", "post"=>{"content"=>"my post", "image"=>"user1.jpeg"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "my post"], ["image", "user1.jpeg"], ["user_id", 2], ["created_at", "2023-08-31 08:50:04.179683"], ["updated_at", "2023-08-31 08:50:04.179683"]]
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:9:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 30ms (Views: 1.2ms | ActiveRecord: 12.3ms | Allocations: 12381)
+
+
+Started GET "/users/1/posts/2" for 127.0.0.1 at 2023-08-31 14:20:20 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2534)
+
+
+Started GET "/users/1/posts/2" for 127.0.0.1 at 2023-08-31 14:20:32 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1842)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=2 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2023-08-31 14:20:39 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1694)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=1 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/users/1/posts/3" for 127.0.0.1 at 2023-08-31 14:20:42 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1", "id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1694)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=3 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 14:20:47 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/posts"):
+  
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-08-31 14:22:25 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/posts"):
+  
+Started GET "/user/1/posts" for 127.0.0.1 at 2023-08-31 14:22:35 +0530
+  
+ActionController::RoutingError (uninitialized constant PostController):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/user/1/posts" for 127.0.0.1 at 2023-08-31 14:23:32 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant PostController):
+  
+Started GET "/user/1/posts" for 127.0.0.1 at 2023-08-31 14:23:57 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 404 Not Found in 33ms (ActiveRecord: 1.6ms | Allocations: 17691)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/user/1/posts/2" for 127.0.0.1 at 2023-08-31 14:24:05 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/posts/2"):
+  
+Started GET "/user/1/posts/2" for 127.0.0.1 at 2023-08-31 14:24:07 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/posts/2"):
+  
+Started GET "/user/1/posts/1" for 127.0.0.1 at 2023-08-31 14:24:10 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/posts/1"):
+  
+Started GET "/user/1/posts/2" for 127.0.0.1 at 2023-08-31 14:24:33 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1", "post_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 404 Not Found in 23ms (ActiveRecord: 1.3ms | Allocations: 10938)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/posts" for 127.0.0.1 at 2023-08-31 14:24:38 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.5ms | Allocations: 6402)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-08-31 14:24:58 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.89ms)
+Completed 200 OK in 23ms (Views: 5.1ms | ActiveRecord: 2.0ms | Allocations: 12881)
+
+
+Started GET "/user/1/posts/9" for 127.0.0.1 at 2023-08-31 14:25:06 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"1", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1525)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/user/2/posts/9" for 127.0.0.1 at 2023-08-31 14:25:23 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1073)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/posts" for 127.0.0.1 at 2023-08-31 14:26:00 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1734)
+
+
+Started GET "/posts/show" for 127.0.0.1 at 2023-08-31 14:26:16 +0530
+Processing by PostsController#show as */*
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1826)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=show [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/posts/9" for 127.0.0.1 at 2023-08-31 14:26:32 +0530
+Processing by PostsController#show as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1695)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:40:in `show'
+Started GET "/posts/9" for 127.0.0.1 at 2023-08-31 14:27:28 +0530
+Processing by PostsController#show as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+Completed 404 Not Found in 21ms (ActiveRecord: 1.8ms | Allocations: 11652)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:32:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started GET "/user/2/posts/11" for 127.0.0.1 at 2023-08-31 14:28:51 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1075)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/posts_controller.rb:32:in `show'
+Started GET "/user/2/posts/11" for 127.0.0.1 at 2023-08-31 14:30:37 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user/2/posts/11"):
+  
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:30:47 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 24ms (Views: 1.1ms | ActiveRecord: 1.5ms | Allocations: 13806)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-08-31 14:31:02 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 1797)
+
+
+Started GET "/users/1/posts/9" for 127.0.0.1 at 2023-08-31 14:31:27 +0530
+Processing by PostsController#show as */*
+  Parameters: {"content"=>"Third Post", "image"=>"Third.jpeg", "user_id"=>"1", "id"=>"9", "post"=>{"content"=>"Third Post", "image"=>"Third.jpeg"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 8665)
+
+
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:32:09 +0530
+Processing by PostsController#show as */*
+  Parameters: {"content"=>"Third Post", "image"=>"Third.jpeg", "user_id"=>"2", "id"=>"11", "post"=>{"content"=>"Third Post", "image"=>"Third.jpeg"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 1531)
+
+
+Started PATCH "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:32:26 +0530
+Processing by PostsController#update as */*
+  Parameters: {"content"=>"Akshat Post", "image"=>"Third.jpeg", "user_id"=>"2", "id"=>"11", "post"=>{"content"=>"Akshat Post", "image"=>"Third.jpeg"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `update'
+[31mUnpermitted parameters: :id, :post. Context: { controller: PostsController, action: update, request: #<ActionDispatch::Request:0x00007ff17876ee38>, params: {"content"=>"Akshat Post", "image"=>"Third.jpeg", "controller"=>"posts", "action"=>"update", "user_id"=>"2", "id"=>"11", "post"=>{"content"=>"Akshat Post", "image"=>"Third.jpeg"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:18:in `update'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "content" = ?, "image" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["content", "Akshat Post"], ["image", "Third.jpeg"], ["updated_at", "2023-08-31 09:02:26.475715"], ["id", 11]]
+  ↳ app/controllers/posts_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:18:in `update'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 200 OK in 29ms (Views: 1.5ms | ActiveRecord: 11.2ms | Allocations: 4917)
+
+
+Started DELETE "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:32:40 +0530
+Processing by PostsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 466)
+
+
+Started DELETE "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:32:48 +0530
+Processing by PostsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 11]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mPost Destroy (1.0ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `destroy'
+Completed 200 OK in 40ms (Views: 0.8ms | ActiveRecord: 14.1ms | Allocations: 16393)
+
+
+Started GET "/user/2/posts/11" for 127.0.0.1 at 2023-08-31 14:33:09 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user/2/posts/11"):
+  
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:33:21 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1707)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=11 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:32:in `show'
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:36:08 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+Completed 404 Not Found in 23ms (ActiveRecord: 1.6ms | Allocations: 11651)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=11 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:32:in `show'
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:39:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+Completed 404 Not Found in 30ms (ActiveRecord: 1.7ms | Allocations: 18324)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=11 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:32:in `show'
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:40:04 +0530
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+Completed 404 Not Found in 32ms (ActiveRecord: 1.7ms | Allocations: 11673)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=11 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:32:in `show'
+Started GET "/users/2/posts/11" for 127.0.0.1 at 2023-08-31 14:40:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as */*
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `show'
+Completed 404 Not Found in 29ms (ActiveRecord: 1.2ms | Allocations: 18324)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=11 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/posts_controller.rb:32:in `show'
+Started POST "/users/2/posts/11/comments" for 127.0.0.1 at 2023-08-31 14:41:31 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"content"=>"Very Good", "user_id"=>"2", "post_id"=>"11", "comment"=>{"content"=>"Very Good"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameter: :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007f8bdad03ca8>, params: {"content"=>"Very Good", "controller"=>"comments", "action"=>"create", "user_id"=>"2", "post_id"=>"11", "comment"=>{"content"=>"Very Good"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 400 Bad Request in 34ms (Views: 2.1ms | ActiveRecord: 2.4ms | Allocations: 21891)
+
+
+Started POST "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:41:41 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"content"=>"Very Good", "user_id"=>"2", "post_id"=>"9", "comment"=>{"content"=>"Very Good"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameter: :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007f8bdad8a3c0>, params: {"content"=>"Very Good", "controller"=>"comments", "action"=>"create", "user_id"=>"2", "post_id"=>"9", "comment"=>{"content"=>"Very Good"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Very Good"], ["user_id", 2], ["post_id", 9], ["created_at", "2023-08-31 09:11:41.192880"], ["updated_at", "2023-08-31 09:11:41.192880"]]
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.19ms)
+Completed 201 Created in 26ms (Views: 1.3ms | ActiveRecord: 11.9ms | Allocations: 8866)
+
+
+Started POST "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:45:04 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"content"=>"Very Good", "user_id"=>"2", "post_id"=>"9", "comment"=>{"content"=>"Very Good"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+[31mUnpermitted parameter: :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x00007f8babe9b680>, params: {"content"=>"Very Good", "controller"=>"comments", "action"=>"create", "user_id"=>"2", "post_id"=>"9", "comment"=>{"content"=>"Very Good"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Very Good"], ["user_id", 2], ["post_id", 9], ["created_at", "2023-08-31 09:15:04.665476"], ["updated_at", "2023-08-31 09:15:04.665476"]]
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.17ms)
+Completed 201 Created in 41ms (Views: 1.5ms | ActiveRecord: 14.9ms | Allocations: 21328)
+
+
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:45:30 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1153)
+
+
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:45:35 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms | Allocations: 2602)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:45:49 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/9/comments"):
+  
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:46:25 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 25ms (ActiveRecord: 1.9ms | Allocations: 12151)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/users/2/posts/10/comments/2" for 127.0.0.1 at 2023-08-31 14:47:47 +0530
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CommentsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/2/posts/10/comments" for 127.0.0.1 at 2023-08-31 14:47:51 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/controllers/comments_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 15ms (Views: 6.0ms | ActiveRecord: 0.6ms | Allocations: 7941)
+
+
+Started GET "/users/2/posts/11/comments" for 127.0.0.1 at 2023-08-31 14:47:57 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2170)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=11 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:48:09 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.3ms | Allocations: 2157)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:49:27 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2157)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:50:32 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6:in `index'
+Completed 404 Not Found in 26ms (ActiveRecord: 1.5ms | Allocations: 12157)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:6:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:51:11 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6:in `index'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2160)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:6:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:52:07 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6:in `index'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.7ms | Allocations: 15079)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `comments' for #<ActiveRecord::Associations::CollectionProxy [#<Post id: 10, content: "Hello i am second user and its my post", image: "user2.jpeg", user_id: 2, created_at: "2023-08-31 07:38:48.240730000 +0000", updated_at: "2023-08-31 07:38:48.240730000 +0000">]>):
+  
+app/controllers/comments_controller.rb:7:in `index'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:53:40 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.7ms | Allocations: 13013)
+
+
+  
+NoMethodError (undefined method `comments' for nil:NilClass):
+  
+app/controllers/comments_controller.rb:7:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:54:22 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 23ms (ActiveRecord: 1.8ms | Allocations: 12143)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:55:32 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/posts/9/comments"):
+  
+Started GET "/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:55:41 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 404 Not Found in 13ms (ActiveRecord: 1.0ms | Allocations: 8620)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/comments_controller.rb:39:in `set_user'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:56:17 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 21ms (ActiveRecord: 2.6ms | Allocations: 12144)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started GET "/users/2/posts/9/comments" for 127.0.0.1 at 2023-08-31 14:56:35 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:39:in `set_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.3ms | Allocations: 2159)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=9 [WHERE "posts"."user_id" = ?]):
+  
+app/controllers/comments_controller.rb:5:in `index'
+Started PATCH "/users/1/posts/5/comments/6" for 127.0.0.1 at 2023-08-31 14:57:46 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"6", "comment"=>{"content"=>"Not that Nice"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 2527)
+
+
+Started PATCH "/users/1/posts/5/comments/6" for 127.0.0.1 at 2023-08-31 14:57:54 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"6", "comment"=>{"content"=>"Not that Nice"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 2071)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=6):
+  
+app/controllers/comments_controller.rb:35:in `set_comment'
+Started PATCH "/users/1/posts/5/comments/10" for 127.0.0.1 at 2023-08-31 14:58:13 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+[31mUnpermitted parameters: :id, :comment. Context: { controller: CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f8bdaccebc0>, params: {"content"=>"Not that Nice", "controller"=>"comments", "action"=>"update", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms | Allocations: 8746)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/comments_controller.rb:14:in `update'
+Started PATCH "/users/1/posts/5/comments/10" for 127.0.0.1 at 2023-08-31 14:58:51 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+[31mUnpermitted parameters: :id, :comment. Context: { controller: CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f8bdacbe748>, params: {"content"=>"Not that Nice", "controller"=>"comments", "action"=>"update", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 5046)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/comments_controller.rb:14:in `update'
+Started PATCH "/users/1/posts/5/comments/10" for 127.0.0.1 at 2023-08-31 14:59:24 +0530
+  
+SyntaxError (/home/hp/Desktop/Home/app/controllers/comments_controller.rb:50: syntax error, unexpected end-of-input, expecting `end' or dummy end):
+  
+app/controllers/comments_controller.rb:50: syntax error, unexpected end-of-input, expecting `end' or dummy end
+app/controllers/comments_controller.rb:50: syntax error, unexpected end-of-input, expecting `end' or dummy end
+app/controllers/comments_controller.rb:50: syntax error, unexpected end-of-input, expecting `end' or dummy end
+Started PATCH "/users/1/posts/5/comments/10" for 127.0.0.1 at 2023-08-31 14:59:40 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+[31mUnpermitted parameters: :id, :comment. Context: { controller: CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f8babbd15f8>, params: {"content"=>"Not that Nice", "controller"=>"comments", "action"=>"update", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+No template found for CommentsController#update, rendering head :no_content
+Completed 204 No Content in 29ms (ActiveRecord: 2.3ms | Allocations: 18602)
+
+
+Started PATCH "/users/1/posts/5/comments/10" for 127.0.0.1 at 2023-08-31 15:00:09 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+[31mUnpermitted parameters: :id, :comment. Context: { controller: CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f8bdadbaf20>, params: {"content"=>"Not that Nice", "controller"=>"comments", "action"=>"update", "user_id"=>"1", "post_id"=>"5", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.3ms | Allocations: 18407)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/comments_controller.rb:14:in `update'
+Started PATCH "/users/1/posts/9/comments/10" for 127.0.0.1 at 2023-08-31 15:00:52 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Not that Nice", "user_id"=>"1", "post_id"=>"9", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+[31mUnpermitted parameters: :id, :comment. Context: { controller: CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f8bdad41238>, params: {"content"=>"Not that Nice", "controller"=>"comments", "action"=>"update", "user_id"=>"1", "post_id"=>"9", "id"=>"10", "comment"=>{"content"=>"Not that Nice"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mComment Update (1.0ms)[0m  [1m[33mUPDATE "comments" SET "content" = ?, "user_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?[0m  [["content", "Not that Nice"], ["user_id", 1], ["updated_at", "2023-08-31 09:30:52.327355"], ["id", 10]]
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+  [1m[36mTRANSACTION (14.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:11:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.18ms)
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 15.4ms | Allocations: 10107)
+
+
+Started DELETE "/comments/10" for 127.0.0.1 at 2023-08-31 15:01:50 +0530
+Processing by CommentsController#destroy as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:28:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:29:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:29:in `destroy'
+Completed 200 OK in 18ms (Views: 1.1ms | ActiveRecord: 11.9ms | Allocations: 3964)
+
+
+Started DELETE "/users/2/posts/9/comments/10" for 127.0.0.1 at 2023-08-31 15:03:49 +0530
+Processing by CommentsController#destroy as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9", "id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1364)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:35:in `set_comment'
+Started DELETE "/users/2/posts/9/comments/11" for 127.0.0.1 at 2023-08-31 15:03:56 +0530
+Processing by CommentsController#destroy as */*
+  Parameters: {"user_id"=>"2", "post_id"=>"9", "id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:35:in `set_comment'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:28:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:29:in `destroy'
+  [1m[36mComment Destroy (1.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/comments_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:29:in `destroy'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 13.5ms | Allocations: 3165)
+
+
+Started GET "/users/2/follows" for 127.0.0.1 at 2023-08-31 15:05:04 +0530
+Processing by FollowsController#index as */*
+  Parameters: {"user_id"=>"2"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1161)
+
+
+Started GET "/users/2/follows" for 127.0.0.1 at 2023-08-31 15:05:10 +0530
+Processing by FollowsController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/controllers/follows_controller.rb:14:in `index'
+No serializer found for resource: #<Follow id: 5, follower_id: 2, followee_id: 5, created_at: "2023-08-21 09:26:03.451397000 +0000", updated_at: "2023-08-21 09:26:03.451397000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Follow::ActiveRecord_Relation (0.18ms)
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 0.9ms | Allocations: 6122)
+
+
+Started GET "/users/2/follows" for 127.0.0.1 at 2023-08-31 15:07:04 +0530
+Processing by FollowsController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mFollow Load (0.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/controllers/follows_controller.rb:14:in `index'
+No serializer found for resource: #<Follow id: 5, follower_id: 2, followee_id: 5, created_at: "2023-08-21 09:26:03.451397000 +0000", updated_at: "2023-08-21 09:26:03.451397000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Follow::ActiveRecord_Relation (0.2ms)
+Completed 200 OK in 23ms (Views: 5.5ms | ActiveRecord: 1.5ms | Allocations: 15552)
+
+
+Started DELETE "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:07:10 +0530
+Processing by FollowsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1145)
+
+
+Started DELETE "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:07:16 +0530
+Processing by FollowsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 1064)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:28:in `destroy'
+Started DELETE "/users/2/follow/1" for 127.0.0.1 at 2023-08-31 15:07:26 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/follow/1"):
+  
+Started DELETE "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:07:29 +0530
+Processing by FollowsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1004)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:28:in `destroy'
+Started POST "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:08:06 +0530
+Processing by FollowsController#post as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 1004)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:4:in `post'
+Started POST "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:08:58 +0530
+Processing by FollowsController#post as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms | Allocations: 8664)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:4:in `post'
+Started POST "/users/2/follow/1" for 127.0.0.1 at 2023-08-31 15:09:02 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/users/2/follow/1"):
+  
+Started POST "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:09:05 +0530
+Processing by FollowsController#post as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1004)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:4:in `post'
+Started POST "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:09:29 +0530
+Processing by FollowsController#post as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms | Allocations: 8665)
+
+
+  
+NoMethodError (undefined method `follow' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:4:in `post'
+Started POST "/users/2/follows/1" for 127.0.0.1 at 2023-08-31 15:11:44 +0530
+Processing by FollowsController#post as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms | Allocations: 8664)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 2, email: "Akshatp@shriffle.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-08-31 07:05:37.018704000 +0000", updated_at: "2023-08-31 07:05:37.018704000 +0000">):
+  
+app/controllers/follows_controller.rb:4:in `post'
+Started POST "/users/1/follow" for 127.0.0.1 at 2023-08-31 15:19:41 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 1], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 2], ["followee_id", 1], ["created_at", "2023-08-31 09:49:41.204611"], ["updated_at", "2023-08-31 09:49:41.204611"]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 46ms (ActiveRecord: 11.9ms | Allocations: 19762)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-08-31 15:19:41 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 2]]
+  ↳ app/controllers/users_controller.rb:64:in `show'
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/controllers/users_controller.rb:65:in `show'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (?, ?)[0m  [["user_id", 1], ["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:68:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 16ms (Views: 4.5ms | ActiveRecord: 1.0ms | Allocations: 7558)
+
+
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[36mFollow Load (0.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFollow Destroy (0.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFollow Destroy (0.5ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 6]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+Started POST "/users/1/follows" for 127.0.0.1 at 2023-08-31 15:23:14 +0530
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for FollowsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/users/2/follow" for 127.0.0.1 at 2023-08-31 15:23:30 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 2], ["followee_id", 2], ["created_at", "2023-08-31 09:53:30.963599"], ["updated_at", "2023-08-31 09:53:30.963599"]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+Redirected to http://127.0.0.1:3000/users/2
+Completed 302 Found in 45ms (ActiveRecord: 14.4ms | Allocations: 18794)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2023-08-31 15:23:30 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 2]]
+  ↳ app/controllers/users_controller.rb:64:in `show'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/controllers/users_controller.rb:65:in `show'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:68:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 14ms (Views: 3.9ms | ActiveRecord: 0.9ms | Allocations: 6780)
+
+
+Started POST "/users/2/follow" for 127.0.0.1 at 2023-08-31 15:25:17 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+Completed 422 Unprocessable Entity in 36ms (ActiveRecord: 1.8ms | Allocations: 19028)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Follower has already been taken, Followee has already been taken):
+  
+app/controllers/users_controller.rb:44:in `follow'
+Started POST "/users/2/unfollow" for 127.0.0.1 at 2023-08-31 15:25:40 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+  [1m[36mFollow Destroy (0.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:50:in `unfollow'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `unfollow'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `unfollow'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `unfollow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.16ms)
+Completed 200 OK in 41ms (Views: 24.2ms | ActiveRecord: 12.1ms | Allocations: 19097)
+
+
+Started GET "/users/2/follow" for 127.0.0.1 at 2023-08-31 15:26:24 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/follow"):
+  
+Started POST "/users/2/follow" for 127.0.0.1 at 2023-08-31 15:26:30 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 2536)
+
+
+Started POST "/users/2/follow" for 127.0.0.1 at 2023-08-31 15:26:35 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Create (0.3ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 2], ["followee_id", 2], ["created_at", "2023-08-31 09:56:35.324169"], ["updated_at", "2023-08-31 09:56:35.324169"]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `follow'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `follow'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.75ms)
+Completed 200 OK in 26ms (Views: 4.9ms | ActiveRecord: 11.3ms | Allocations: 9804)
+
+
+Started POST "/users/1/follow" for 127.0.0.1 at 2023-08-31 15:26:48 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 1], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 2], ["followee_id", 1], ["created_at", "2023-08-31 09:56:48.754211"], ["updated_at", "2023-08-31 09:56:48.754211"]]
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `follow'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `follow'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `follow'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.92ms)
+Completed 200 OK in 28ms (Views: 5.0ms | ActiveRecord: 11.2ms | Allocations: 9713)
+
+

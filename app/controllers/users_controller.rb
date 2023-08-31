@@ -1,6 +1,6 @@
 class UsersController < ApplicationController 
   skip_before_action :authenticate_request, only: [:create,:login]
-  before_action :find_user, only: [:show, :update, :destroy]
+ 
   
   
   def login
@@ -14,8 +14,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users=User.all
-    render json: @users, status: :ok
+    render json: @current_user
   end
   
   def new
@@ -40,13 +39,16 @@ class UsersController < ApplicationController
     end
   end
   
-  def user_post
-   
-    follower_ids = @current_user.followers.pluck(:follower_id)
-    followee_ids = @current_user.followees.pluck(:followee_id)
-    post_user_ids = (follower_ids + followee_ids + [@current_user.id]).uniq
-    @posts = Post.where(user_id: post_user_ids)
-    render json: @posts
+  def follow
+    @user = User.find(params[:id])
+    current_user.followees << @user
+    render json: @user
+  end
+  
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.followed_users.find_by(followee_id: @user.id).destroy
+    render json: @user
   end
   
   private def user_params
@@ -59,17 +61,15 @@ class UsersController < ApplicationController
   end
   
   def show
-   
-    if @current_user
-      render json: @current_user
-    else
-      render json: @current_user.errors.full_messages
-    end
+    follower_ids = @current_user.followers.pluck(:follower_id)
+    followee_ids = @current_user.followees.pluck(:followee_id)
+    post_user_ids = (follower_ids + followee_ids + [@current_user.id]).uniq
+    @posts = Post.where(user_id: post_user_ids)
+    render json: @posts
   end
   
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    @current_user.destroy
     render json:'User Deleted Succesfully..'
   end
 end

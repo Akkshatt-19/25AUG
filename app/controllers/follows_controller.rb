@@ -1,22 +1,12 @@
 class FollowsController < ApplicationController
   
-  def post
-    @follows = Follow.new(follow_params)
-    if @follows.save
-      render json: @follows, status: 201
-    else
-      render json: {error: @follows.errors.full_messages}, status: 400
-    end
-  end
-  
   def index
-    @follows=Follow.all
+    @follows = Follow.all
     render json: @follows
   end
   
-  
   def show
-    @follows = Follow.find(params[:id])
+    @follows = @current_user.follows.find(params[:id])
     if @follows
       render json: @follows
     else
@@ -25,7 +15,7 @@ class FollowsController < ApplicationController
   end
   
   def destroy
-    @follows = Follow.find(params[:id])
+    @follows = @current_user.follows.find(params[:id])
     @follows.destroy
     render json:'Follower Deleted Succesfully..'
   end
