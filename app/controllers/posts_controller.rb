@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :update, :destroy]
+
   def index
     render json: @current_user.posts
   end
@@ -11,32 +13,39 @@ class PostsController < ApplicationController
       render json: {error: posts.errors.full_messages}, status: 400
     end
   end
-  
+
   def update
-    posts = @current_user.posts.find(params[:id])
-    if posts.update(post_params)
-      render json: posts,status: 200
+    if @post && @post.user == @current_user
+      if @post.update(post_params)
+        render json: @post, status: :ok
+      else
+        render json: { errors: @post.errors.full_messages }, status: :bad_request
+      end
     else
-      render json: {error: posts.errors.full_messages},status: 404
+      render json: { error: "Post not found or unauthorized" }, status: :not_found
     end
   end
-  
+ 
   def destroy
-    posts = @current_user.posts.find(params[:id])
-    posts.destroy
-    render json:'Post Deleted Succesfully..'
+    if @post && @post.user == @current_user
+      @post.destroy
+      render json: 'Post Deleted Successfully.'
+    else
+      render json: { error: "Post not found or unauthorized" }, status: :not_found
+    end
   end
 
   def show
-    posts = @current_user.posts.find(params[:id])
-    if posts
-      render json: posts
-    end
-  rescue ActiveRecord::RecordNotFound
-    render json: e.message
+    render json: @post
   end
-  
-  private def post_params
+
+  private
+
+  def set_post
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def post_params
     params.permit(
       :content,
       :image,

@@ -1,36 +1,29 @@
 Rails.application.routes.draw do
-  
-  resources :users
-  post 'user/login', to: 'users#login'
-  post 'user/signup', to: 'users#signup'
-  
-  post '/users/:id/follow', to: "users#follow", as: "follow_user"
-  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
-  
-  resources :blocks
-  resources :follows
-  resources :posts
-  
-  post 'users/:user_id/follows/:id', to: 'follows#post'
-  
-  resources :users do
-    resources :posts
+  # Authentication routes
+  post 'login', to: 'users#login'
+  post 'signup', to: 'users#signup'
+
+  # Users resource
+  resources :users, only: [:show], shallow: true do
+    post 'follow', on: :member
+    post 'unfollow', on: :member
   end
-  
-  resources :users do
-    resources :posts, only: [:create, :update, :show, :destroy]
-    resources :follows
-  end
-  
-  resources :users do
-    resources :posts do
-      resources :comments
+
+  # Posts resource
+  resources :posts, only: [:index, :create, :show, :update , :destroy] do
+    resources :comments, only: [:create, :update, :destroy] do
+      get 'edit', on: :member
     end
-  end
-  
-  resources :comments, only: [:show,:create,:edit, :update, :destroy] 
-  
-  resources :posts do
     resources :likes, only: [:index, :create, :destroy]
   end
+
+  # Blocks resource
+  resources :blocks, only: [:create, :destroy]
+
+  # Custom route for creating follows
+  post 'follows/:id', to: 'follows#post', as: 'user_follows'
+
+  # Update and delete routes for users
+  patch 'users/:id', to: 'users#update', as: 'update_user'
+  delete 'users/:id', to: 'users#destroy', as: 'delete_user'
 end

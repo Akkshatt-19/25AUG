@@ -7155,3 +7155,719 @@ Processing by ActiveStorage::DiskController#show as JPEG
 Completed 200 OK in 7ms (ActiveRecord: 0.0ms | Allocations: 1585)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/signup" for 127.0.0.1 at 2023-09-04 02:24:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+Started GET "/signup" for 127.0.0.1 at 2023-09-04 02:24:30 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+Started POST "/signup?email=ap@gmail.com&password=[FILTERED]&fname=Akshat&lname=Pegwar" for 127.0.0.1 at 2023-09-04 02:27:24 +0530
+  
+AbstractController::ActionNotFound (The action 'signup' could not be found for UsersController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/signup?email=ap@gmail.com&password=[FILTERED]&fname=Akshat&lname=Pegwar" for 127.0.0.1 at 2023-09-04 02:29:54 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]", "fname"=>"Akshat", "lname"=>"Pegwar"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 195ms (Views: 117.3ms | ActiveRecord: 0.0ms | Allocations: 3454)
+
+
+Started POST "/signup?email=akshu@gmail.com&password=[FILTERED]&fname=Akshit&lname=Pegwar" for 127.0.0.1 at 2023-09-04 02:31:00 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"akshu@gmail.com", "password"=>"[FILTERED]", "fname"=>"Akshit", "lname"=>"Pegwar"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 465)
+
+
+Started POST "/signup?email=ap@gmail.com&password=[FILTERED]&fname=Akshat&lname=Pegwar" for 127.0.0.1 at 2023-09-04 02:32:51 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]", "fname"=>"Akshat", "lname"=>"Pegwar"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Exists? (37.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "fname", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "ap@gmail.com"], ["password_digest", "[FILTERED]"], ["fname", "Akshat"], ["lname", "Pegwar"], ["created_at", "2023-09-03 21:02:54.726619"], ["updated_at", "2023-09-03 21:02:54.726619"]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mTRANSACTION (77.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 201 Created in 704ms (Views: 2.8ms | ActiveRecord: 119.9ms | Allocations: 21930)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-09-04 02:34:20 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/login?email=ap@gmail.com&password=[FILTERED]" for 127.0.0.1 at 2023-09-04 02:35:04 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started POST "/login?email=ap@gmail.com&password=[FILTERED]" for 127.0.0.1 at 2023-09-04 02:35:29 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 264ms (Views: 1.4ms | ActiveRecord: 1.0ms | Allocations: 1127)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/login" for 127.0.0.1 at 2023-09-04 02:38:02 +0530
+Processing by UsersController#login as */*
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 929)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-09-04 02:38:48 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 285ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 767)
+
+
+Started POST "/login?email&password" for 127.0.0.1 at 2023-09-04 02:39:30 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>nil, "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 861)
+
+
+Started POST "/login?email=ap@gmail.com&password=[FILTERED]" for 127.0.0.1 at 2023-09-04 02:40:09 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 284ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 866)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2023-09-04 02:41:17 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"3"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 471)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2023-09-04 02:41:48 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Pluck (0.8ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 3]]
+  ↳ app/controllers/users_controller.rb:49:in `show'
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/controllers/users_controller.rb:50:in `show'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 913ms (Views: 181.2ms | ActiveRecord: 3.1ms | Allocations: 28477)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2023-09-04 02:44:03 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 3]]
+  ↳ app/controllers/users_controller.rb:49:in `show'
+  [1m[36mUser Pluck (0.4ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/controllers/users_controller.rb:50:in `show'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 83ms (Views: 2.5ms | ActiveRecord: 5.1ms | Allocations: 16297)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-09-04 02:44:46 +0530
+Processing by PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 2568)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-09-04 02:44:47 +0530
+Processing by PostsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 463)
+
+
+Started GET "/blocks/:id" for 127.0.0.1 at 2023-09-04 02:47:04 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/blocks/:id"):
+  
+Started GET "/blocks/:id" for 127.0.0.1 at 2023-09-04 02:47:04 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/blocks/:id"):
+  
+Started PATCH "/users/3" for 127.0.0.1 at 2023-09-04 02:49:57 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/users/3"):
+  
+Started PATCH "/users/3?fname=Ashu" for 127.0.0.1 at 2023-09-04 02:50:47 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/users/3"):
+  
+Started PUT "/users/3?fname=Ashu" for 127.0.0.1 at 2023-09-04 02:50:58 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/users/3"):
+  
+Started PUT "/users/3?fname=Ashu" for 127.0.0.1 at 2023-09-04 02:52:26 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/users/3"):
+  
+Started PATCH "/users/3?fname=Ashu" for 127.0.0.1 at 2023-09-04 02:52:36 +0530
+Processing by UsersController#update as */*
+  Parameters: {"fname"=>"Ashu", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000002670d2c0dc8>, params: {"fname"=>"Ashu", "controller"=>"users", "action"=>"update", "id"=>"3"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mUser Update (48.0ms)[0m  [1m[33mUPDATE "users" SET "fname" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["fname", "Ashu"], ["updated_at", "2023-09-03 21:22:37.231312"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (39.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (197.15ms)
+Completed 200 OK in 628ms (Views: 484.6ms | ActiveRecord: 89.6ms | Allocations: 25002)
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2023-09-04 02:54:13 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 6ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 2660)
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2023-09-04 02:54:25 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mUser Destroy (25.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mTRANSACTION (46.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 217ms (Views: 1.0ms | ActiveRecord: 74.6ms | Allocations: 24521)
+
+
+Started POST "/posts?content=Post1-Ashu" for 127.0.0.1 at 2023-09-04 02:55:29 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post1-Ashu"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 505)
+
+
+Started POST "/posts?content=Post1-Ashu" for 127.0.0.1 at 2023-09-04 02:55:40 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post1-Ashu"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 1599)
+
+
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started POST "/posts?content=Post1-Ashu&image=Post.jpeg" for 127.0.0.1 at 2023-09-04 02:57:15 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post1-Ashu", "image"=>"Post.jpeg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 911)
+
+
+Started POST "/posts?content=Post1-Ashu&image=Post.jpeg" for 127.0.0.1 at 2023-09-04 03:02:44 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post1-Ashu", "image"=>"Post.jpeg"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 43ms (Views: 2.0ms | ActiveRecord: 1.1ms | Allocations: 9535)
+
+
+Started POST "/posts?content=Post1-Ashu&image=Post.jpeg" for 127.0.0.1 at 2023-09-04 03:04:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post1-Ashu", "image"=>"Post.jpeg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 59ms (Views: 0.9ms | ActiveRecord: 1.1ms | Allocations: 13093)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:05:59 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post-1", "image"=>"p1.jpeg"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-09-04 03:06:29 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 924)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-09-04 03:06:38 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 923)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:10:59 +0530
+Processing by PostsController#create as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 57ms (Views: 8.4ms | ActiveRecord: 1.4ms | Allocations: 10024)
+
+
+Started POST "/posts?content=Post1-Ashu&image=Post.jpeg" for 127.0.0.1 at 2023-09-04 03:11:19 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Post1-Ashu", "image"=>"Post.jpeg"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 911)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:13:08 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 858)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:13:57 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 200 OK in 37ms (Views: 0.9ms | ActiveRecord: 2.5ms | Allocations: 9547)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:14:43 +0530
+  
+SyntaxError (C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:26: syntax error, unexpected end-of-input, expecting `end' or dummy end):
+  
+app/controllers/application_controller.rb:26: syntax error, unexpected end-of-input, expecting `end' or dummy end
+app/controllers/application_controller.rb:26: syntax error, unexpected end-of-input, expecting `end' or dummy end
+app/controllers/application_controller.rb:26: syntax error, unexpected end-of-input, expecting `end' or dummy end
+app/controllers/posts_controller.rb:1:in `<main>'
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:15:37 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 200 OK in 49ms (Views: 5.9ms | ActiveRecord: 1.9ms | Allocations: 9853)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:16:56 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 36ms (Views: 1.7ms | ActiveRecord: 2.4ms | Allocations: 9519)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:17:23 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 404 Not Found in 38ms (ActiveRecord: 2.1ms | Allocations: 7437)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:13:in `authenticate_request'
+Started POST "/signup?email=ap@gmail.com&password=[FILTERED]&fname=Akshat&lname=Pegwar" for 127.0.0.1 at 2023-09-04 03:17:39 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]", "fname"=>"Akshat", "lname"=>"Pegwar"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "fname", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "ap@gmail.com"], ["password_digest", "[FILTERED]"], ["fname", "Akshat"], ["lname", "Pegwar"], ["created_at", "2023-09-03 21:47:40.024520"], ["updated_at", "2023-09-03 21:47:40.024520"]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mTRANSACTION (66.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 201 Created in 386ms (Views: 1.7ms | ActiveRecord: 70.3ms | Allocations: 11550)
+
+
+Started POST "/login?email=ap@gmail.com&password=[FILTERED]" for 127.0.0.1 at 2023-09-04 03:17:47 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 288ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1116)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/posts" for 127.0.0.1 at 2023-09-04 03:18:15 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+[31mUnpermitted parameter: :post. Context: { controller: PostsController, action: create, request: #<ActionDispatch::Request:0x000001ca0c110508>, params: {"content"=>"Hello this is 3rd post", "image"=>"third.jpeg", "controller"=>"posts", "action"=>"create", "post"=>{"content"=>"Hello this is 3rd post", "image"=>"third.jpeg"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (19.0ms)[0m  [1m[32mINSERT INTO "posts" ("content", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Hello this is 3rd post"], ["image", "third.jpeg"], ["user_id", 3], ["created_at", "2023-09-03 21:48:15.487128"], ["updated_at", "2023-09-03 21:48:15.487128"]]
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (90.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.34ms)
+Completed 500 Internal Server Error in 498ms (ActiveRecord: 110.5ms | Allocations: 21480)
+
+
+  
+NoMethodError (undefined method `url' for "third.jpeg":String):
+  
+app/serializers/post_serializer.rb:9:in `image'
+app/controllers/posts_controller.rb:11:in `create'
+Started POST "/posts?content=post1&image=post1.jpeg" for 127.0.0.1 at 2023-09-04 03:19:02 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"post1", "image"=>"post1.jpeg", "post"=>{"content"=>"post1", "image"=>"post1.jpeg"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+[31mUnpermitted parameter: :post. Context: { controller: PostsController, action: create, request: #<ActionDispatch::Request:0x000001ca0c111ae8>, params: {"content"=>"post1", "image"=>"post1.jpeg", "controller"=>"posts", "action"=>"create", "post"=>{"content"=>"post1", "image"=>"post1.jpeg"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (2.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "post1"], ["image", "post1.jpeg"], ["user_id", 3], ["created_at", "2023-09-03 21:49:02.766869"], ["updated_at", "2023-09-03 21:49:02.766869"]]
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (43.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 46.1ms | Allocations: 3568)
+
+
+  
+NoMethodError (undefined method `url' for "post1.jpeg":String):
+  
+app/serializers/post_serializer.rb:9:in `image'
+app/controllers/posts_controller.rb:11:in `create'
+Started POST "/posts?content=post1&image=post1.jpeg" for 127.0.0.1 at 2023-09-04 03:19:59 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"post1", "image"=>"post1.jpeg", "post"=>{"content"=>"post1", "image"=>"post1.jpeg"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+[31mUnpermitted parameter: :post. Context: { controller: PostsController, action: create, request: #<ActionDispatch::Request:0x000001ca0c965d20>, params: {"content"=>"post1", "image"=>"post1.jpeg", "controller"=>"posts", "action"=>"create", "post"=>{"content"=>"post1", "image"=>"post1.jpeg"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (3.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "post1"], ["image", "post1.jpeg"], ["user_id", 3], ["created_at", "2023-09-03 21:50:01.826046"], ["updated_at", "2023-09-03 21:50:01.826046"]]
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (54.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:11:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (51.17ms)
+Completed 201 Created in 176ms (Views: 59.1ms | ActiveRecord: 63.5ms | Allocations: 26935)
+
+
+Started GET "/posts?content=post1&image=post1.jpeg" for 127.0.0.1 at 2023-09-04 03:20:54 +0530
+Processing by PostsController#index as */*
+  Parameters: {"content"=>"post1", "image"=>"post1.jpeg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.92ms)
+Completed 200 OK in 31ms (Views: 25.2ms | ActiveRecord: 2.2ms | Allocations: 12099)
+
+
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started GET "/posts/14" for 127.0.0.1 at 2023-09-04 03:21:47 +0530
+Processing by PostsController#show as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:39:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:39:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:39:in `show'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (20.74ms)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 1.2ms | Allocations: 7289)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-09-04 03:22:01 +0530
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (30.94ms)
+Completed 200 OK in 38ms (Views: 31.7ms | ActiveRecord: 2.6ms | Allocations: 11409)
+
+
+Started PATCH "/posts/14?content=Updated%20Post" for 127.0.0.1 at 2023-09-04 03:22:58 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/posts/14"):
+  
+Started PATCH "/posts/14?content=Updated%20Post" for 127.0.0.1 at 2023-09-04 03:23:47 +0530
+Processing by PostsController#update as */*
+  Parameters: {"content"=>"Updated Post", "id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18:in `update'
+[31mUnpermitted parameter: :id. Context: { controller: PostsController, action: update, request: #<ActionDispatch::Request:0x000001ca0cd89118>, params: {"content"=>"Updated Post", "controller"=>"posts", "action"=>"update", "id"=>"14"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:19:in `update'
+  [1m[36mPost Update (3.4ms)[0m  [1m[33mUPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["content", "Updated Post"], ["updated_at", "2023-09-03 21:53:50.701121"], ["id", 14]]
+  ↳ app/controllers/posts_controller.rb:19:in `update'
+  [1m[36mTRANSACTION (58.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:19:in `update'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:20:in `update'
+[active_model_serializers]   [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 14]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:20:in `update'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (43.53ms)
+Completed 200 OK in 187ms (Views: 44.8ms | ActiveRecord: 69.1ms | Allocations: 30079)
+
+
+Started DELETE "/posts/14" for 127.0.0.1 at 2023-09-04 03:24:41 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/posts/14"):
+  
+Started DELETE "/posts/14" for 127.0.0.1 at 2023-09-04 03:24:58 +0530
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"14"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 5ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2671)
+
+
+Started DELETE "/posts/14" for 127.0.0.1 at 2023-09-04 03:25:07 +0530
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 14]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mPost Destroy (1.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (31.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Completed 200 OK in 129ms (Views: 0.9ms | ActiveRecord: 41.2ms | Allocations: 23550)
+
+
+Started POST "/posts?content=post1&image=post1.jpeg" for 127.0.0.1 at 2023-09-04 03:25:56 +0530
+Processing by PostsController#create as */*
+  Parameters: {"content"=>"post1", "image"=>"post1.jpeg", "post"=>{"content"=>"post1", "image"=>"post1.jpeg"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+[31mUnpermitted parameter: :post. Context: { controller: PostsController, action: create, request: #<ActionDispatch::Request:0x000001ca0c176e20>, params: {"content"=>"post1", "image"=>"post1.jpeg", "controller"=>"posts", "action"=>"create", "post"=>{"content"=>"post1", "image"=>"post1.jpeg"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (1.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "post1"], ["image", "post1.jpeg"], ["user_id", 3], ["created_at", "2023-09-03 21:55:56.130560"], ["updated_at", "2023-09-03 21:55:56.130560"]]
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (85.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 15]]
+[active_model_serializers]   ↳ app/controllers/posts_controller.rb:11:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (29.67ms)
+Completed 201 Created in 322ms (Views: 222.2ms | ActiveRecord: 88.6ms | Allocations: 21121)
+
+
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Started POST "/posts/15/comments?content=Nice" for 127.0.0.1 at 2023-09-04 03:27:19 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"content"=>"Nice", "post_id"=>"15"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at C:/Users/aksha/OneDrive/Desktop/Facebook/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:60:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+  [1m[36mComment Create (1.6ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Nice"], ["user_id", 3], ["post_id", 15], ["created_at", "2023-09-03 21:57:20.175763"], ["updated_at", "2023-09-03 21:57:20.175763"]]
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (79.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.47ms)
+Completed 201 Created in 105ms (Views: 2.5ms | ActiveRecord: 82.2ms | Allocations: 9195)
+
+
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Started PATCH "/posts/15/comments/12/edit?content=Good" for 127.0.0.1 at 2023-09-04 03:29:09 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/posts/15/comments/12/edit"):
+  
+Started PUT "/posts/15/comments/12/edit?content=Good" for 127.0.0.1 at 2023-09-04 03:29:42 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/posts/15/comments/12/edit"):
+  

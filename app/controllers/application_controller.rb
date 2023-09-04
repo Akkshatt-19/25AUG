@@ -15,16 +15,16 @@ class ApplicationController < ActionController::API
       render json: { error: 'Invalid token' }, status: :unprocessable_entity
     end
     
-  rescue ActiveRecord::RecordNotFound
-    render json: "No record found.."
+    # rescue ActiveRecord::RecordNotFound
+    #   render json: "No record found.."
   end
   
   def current_user
     @current_user
   end
   
-  rescue_from ActiveRecord::RecordNotFound, with: :handle_exception
-  def handle_exception
-    render json: { error: 'Record not found' }
-  end
+  # rescue_from ActiveRecord::RecordNotFound, with: :handle_exception
+  # def handle_exception
+  #   render json: { error: 'Record not found' }
+  # end
 end
