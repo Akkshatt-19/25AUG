@@ -7871,3 +7871,2033 @@ Started PUT "/posts/15/comments/12/edit?content=Good" for 127.0.0.1 at 2023-09-0
   
 ActionController::RoutingError (No route matches [PUT] "/posts/15/comments/12/edit"):
   
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/login?email=ap@gmail.com&password=[FILTERED]" for 127.0.0.1 at 2023-09-04 14:48:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 263ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 18255)
+
+
+Started POST "/posts/15/comments?content=Nice" for 127.0.0.1 at 2023-09-04 14:49:41 +0530
+Processing by CommentsController#create as */*
+  Parameters: {"content"=>"Nice", "post_id"=>"15"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:60:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+  [1m[36mComment Create (1.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Nice"], ["user_id", 3], ["post_id", 15], ["created_at", "2023-09-04 09:19:41.921694"], ["updated_at", "2023-09-04 09:19:41.921694"]]
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (22.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:25:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.25ms)
+Completed 201 Created in 88ms (Views: 1.6ms | ActiveRecord: 25.5ms | Allocations: 22605)
+
+
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Started PUT "/posts/15/comments/13/edit?content=Good" for 127.0.0.1 at 2023-09-04 14:52:07 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/posts/15/comments/13/edit"):
+  
+Started PATCH "/posts/15/comments/13/edit?content=Good" for 127.0.0.1 at 2023-09-04 14:52:13 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/posts/15/comments/13/edit"):
+  
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Started PATCH "//posts/15/comments/13?content=Very%20nice" for 127.0.0.1 at 2023-09-04 14:55:50 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Very nice", "post_id"=>"15", "id"=>"13"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 581)
+
+
+Started PATCH "//posts/15/comments/13?content=Very%20nice" for 127.0.0.1 at 2023-09-04 14:55:55 +0530
+Processing by CommentsController#update as */*
+  Parameters: {"content"=>"Very nice", "post_id"=>"15", "id"=>"13"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:56:in `set_comment'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:12:in `update'
+[31mUnpermitted parameter: :id. Context: { controller: CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f5bff27fd28>, params: {"content"=>"Very nice", "controller"=>"comments", "action"=>"update", "post_id"=>"15", "id"=>"13"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:13:in `update'
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:13:in `update'
+  [1m[36mComment Update (0.2ms)[0m  [1m[33mUPDATE "comments" SET "content" = ?, "updated_at" = ? WHERE "comments"."id" = ?[0m  [["content", "Very nice"], ["updated_at", "2023-09-04 09:25:55.380543"], ["id", 13]]
+  ↳ app/controllers/comments_controller.rb:13:in `update'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:13:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.16ms)
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 12.1ms | Allocations: 7190)
+
+
+Started DELETE "//posts/15/comments/13" for 127.0.0.1 at 2023-09-04 14:56:54 +0530
+Processing by CommentsController#destroy as */*
+  Parameters: {"post_id"=>"15", "id"=>"13"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:56:in `set_comment'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:35:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/comments_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:35:in `destroy'
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 11.8ms | Allocations: 4020)
+
+
+Started GET "/posts/15/comments/13/edit" for 127.0.0.1 at 2023-09-04 14:58:01 +0530
+Processing by CommentsController#edit as */*
+  Parameters: {"post_id"=>"15", "id"=>"13"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:56:in `set_comment'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 945)
+
+
+  
+NoMethodError (undefined method `user' for nil:NilClass):
+  
+app/controllers/comments_controller.rb:46:in `edit'
+Started GET "/posts/15/comments" for 127.0.0.1 at 2023-09-04 14:58:28 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/15/comments"):
+  
+Started GET "/posts/15/comments" for 127.0.0.1 at 2023-09-04 14:59:24 +0530
+Processing by CommentsController#index as */*
+  Parameters: {"post_id"=>"15"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:60:in `set_post'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  ↳ app/controllers/comments_controller.rb:8:in `index'
+No serializer found for resource: #<Comment id: 12, content: "Nice", user_id: 3, post_id: 15, created_at: "2023-09-03 21:57:20.175763000 +0000", updated_at: "2023-09-03 21:57:20.175763000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Comment::ActiveRecord_Associations_CollectionProxy (0.15ms)
+Completed 200 OK in 23ms (Views: 12.5ms | ActiveRecord: 1.5ms | Allocations: 14532)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:01:40 +0530
+  
+AbstractController::ActionNotFound (The action 'post' could not be found for FollowsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:02:28 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 4ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 2909)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:02:32 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f5c1da4bc28>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 43ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 19745)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:03:32 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f5bff32ba60>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 7ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 4671)
+
+
+Started POST "/follows/2" for 127.0.0.1 at 2023-09-04 15:03:36 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f5bff195480>, params: {"controller"=>"follows", "action"=>"create", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 4685)
+
+
+Started POST "/follows/3" for 127.0.0.1 at 2023-09-04 15:03:38 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"3"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f5bff1fbc30>, params: {"controller"=>"follows", "action"=>"create", "id"=>"3"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 4670)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:05:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6318ad4940>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 400 Bad Request in 41ms (Views: 1.8ms | ActiveRecord: 1.4ms | Allocations: 27710)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:06:07 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6312820a10>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 400 Bad Request in 7ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 4692)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:07:39 +0530
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for FollowsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:08:26 +0530
+Processing by FollowsController#follow as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `follow'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.9ms | Allocations: 9447)
+
+
+  
+NoMethodError (undefined method `followees' for nil:NilClass):
+  
+app/controllers/follows_controller.rb:11:in `follow'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:08:59 +0530
+Processing by FollowsController#follow as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `follow'
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.0ms | Allocations: 9371)
+
+
+  
+NoMethodError (undefined method `follows' for nil:NilClass):
+  
+app/controllers/follows_controller.rb:11:in `follow'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:10:00 +0530
+Processing by FollowsController#follow as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `follow'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.0ms | Allocations: 9364)
+
+
+  
+NoMethodError (undefined method `followee_id' for nil:NilClass):
+  
+app/controllers/follows_controller.rb:11:in `follow'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:11:47 +0530
+Processing by FollowsController#follow as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `follow'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.2ms | Allocations: 10273)
+
+
+  
+NoMethodError (undefined method `followee' for #<User id: 3, email: "ap@gmail.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-09-03 21:47:40.024520000 +0000", updated_at: "2023-09-03 21:47:40.024520000 +0000">):
+  
+app/controllers/follows_controller.rb:11:in `follow'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:12:17 +0530
+Processing by FollowsController#follow as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `follow'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.0ms | Allocations: 10193)
+
+
+  
+NoMethodError (undefined method `follower' for #<User id: 3, email: "ap@gmail.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-09-03 21:47:40.024520000 +0000", updated_at: "2023-09-03 21:47:40.024520000 +0000">):
+  
+app/controllers/follows_controller.rb:11:in `follow'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:13:04 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6312622448>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 24ms (Views: 1.0ms | ActiveRecord: 1.6ms | Allocations: 18460)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:13:28 +0530
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for FollowsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:13:55 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.1ms | Allocations: 10148)
+
+
+  
+NoMethodError (undefined method `user_follows' for #<User id: 3, email: "ap@gmail.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-09-03 21:47:40.024520000 +0000", updated_at: "2023-09-03 21:47:40.024520000 +0000">):
+  
+app/controllers/follows_controller.rb:11:in `create'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:15:22 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.1ms | Allocations: 10147)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 3, email: "ap@gmail.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-09-03 21:47:40.024520000 +0000", updated_at: "2023-09-03 21:47:40.024520000 +0000">):
+  
+app/controllers/follows_controller.rb:11:in `create'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:15:40 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.1ms | Allocations: 10186)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 3, email: "ap@gmail.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-09-03 21:47:40.024520000 +0000", updated_at: "2023-09-03 21:47:40.024520000 +0000">):
+  
+app/controllers/follows_controller.rb:11:in `create'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:16:18 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6312612458>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 75ms (Views: 1.2ms | ActiveRecord: 3.7ms | Allocations: 18465)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:17:44 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 29ms (Views: 0.9ms | ActiveRecord: 1.6ms | Allocations: 18372)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:18:55 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f631888e1b8>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 26ms (Views: 1.1ms | ActiveRecord: 1.5ms | Allocations: 18244)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:19:23 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f63126049c0>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.9ms | Allocations: 15799)
+
+
+  
+NoMethodError (undefined method `render_error_response' for #<FollowsController:0x00000000056d60>):
+  
+app/controllers/follows_controller.rb:14:in `create'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:19:52 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6312720020>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.7ms | Allocations: 15865)
+
+
+  
+NoMethodError (undefined method `render_error_response' for #<FollowsController:0x0000000005bef0>):
+  
+app/controllers/follows_controller.rb:14:in `create'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:20:05 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f63126fd8e0>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" IS NULL AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+No template found for FollowsController#create, rendering head :no_content
+Completed 204 No Content in 36ms (ActiveRecord: 1.7ms | Allocations: 15846)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:20:51 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.0ms | Allocations: 9541)
+
+
+  
+NoMethodError (undefined method `follows' for #<User id: 3, email: "ap@gmail.com", password_digest: [FILTERED], fname: "Akshat", lname: "Pegwar", created_at: "2023-09-03 21:47:40.024520000 +0000", updated_at: "2023-09-03 21:47:40.024520000 +0000">):
+  
+app/controllers/follows_controller.rb:10:in `create'
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:21:25 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6312715fa8>, params: {"controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+No template found for FollowsController#create, rendering head :no_content
+Completed 204 No Content in 37ms (ActiveRecord: 1.3ms | Allocations: 19027)
+
+
+Started POST "/follows/1?follower_id=1&followee_id=3" for 127.0.0.1 at 2023-09-04 15:23:45 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"follower_id"=>"1", "followee_id"=>"3", "id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f63123a53c8>, params: {"follower_id"=>"1", "followee_id"=>"3", "controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["followee_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 3], ["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Create (0.8ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followee_id", 3], ["created_at", "2023-09-04 09:53:45.642989"], ["updated_at", "2023-09-04 09:53:45.642989"]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Follow (0.18ms)
+Completed 201 Created in 48ms (Views: 1.6ms | ActiveRecord: 13.4ms | Allocations: 23343)
+
+
+Started POST "/follows/1?follower_id=2" for 127.0.0.1 at 2023-09-04 15:24:07 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"follower_id"=>"2", "id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f6312709938>, params: {"follower_id"=>"2", "controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" IS NULL LIMIT ?[0m  [["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" IS NULL AND "follows"."follower_id" = ? LIMIT ?[0m  [["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 9ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 5881)
+
+
+Started POST "/follows/1?follower_id=2&followee_id=3" for 127.0.0.1 at 2023-09-04 15:24:15 +0530
+Processing by FollowsController#create as */*
+  Parameters: {"follower_id"=>"2", "followee_id"=>"3", "id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: FollowsController, action: create, request: #<ActionDispatch::Request:0x00007f63127e3ac0>, params: {"follower_id"=>"2", "followee_id"=>"3", "controller"=>"follows", "action"=>"create", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["followee_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 3], ["follower_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 2], ["followee_id", 3], ["created_at", "2023-09-04 09:54:15.340388"], ["updated_at", "2023-09-04 09:54:15.340388"]]
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/follows_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Follow (0.14ms)
+Completed 201 Created in 19ms (Views: 0.5ms | ActiveRecord: 11.0ms | Allocations: 5991)
+
+
+Started POST "/follows/1" for 127.0.0.1 at 2023-09-04 15:29:01 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `follow'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 1], ["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Create (0.7ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 3], ["followee_id", 1], ["created_at", "2023-09-04 09:59:01.758479"], ["updated_at", "2023-09-04 09:59:01.758479"]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:39:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (25.14ms)
+Completed 200 OK in 97ms (Views: 45.1ms | ActiveRecord: 15.5ms | Allocations: 37553)
+
+
+Started POST "/follows/2" for 127.0.0.1 at 2023-09-04 15:29:32 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 3], ["followee_id", 2], ["created_at", "2023-09-04 09:59:32.544047"], ["updated_at", "2023-09-04 09:59:32.544047"]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MDQ6MzIuNjE0WiIsInB1ciI6ImJsb2Jfa2V5In19--e84906b7b8da5c2b41434531bb3b080e0c7e4fa1/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:39:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (60.81ms)
+Completed 200 OK in 80ms (Views: 60.2ms | ActiveRecord: 12.1ms | Allocations: 35038)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MDQ6MzIuNjE0WiIsInB1ciI6ImJsb2Jfa2V5In19--e84906b7b8da5c2b41434531bb3b080e0c7e4fa1/img.jpg" for 127.0.0.1 at 2023-09-04 15:29:38 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"img"}
+Completed 200 OK in 15ms (ActiveRecord: 0.0ms | Allocations: 2052)
+
+
+Started DELETE "/users/1/unfollow" for 127.0.0.1 at 2023-09-04 15:30:41 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/1/unfollow"):
+  
+Started POST "/users/1/unfollow" for 127.0.0.1 at 2023-09-04 15:32:51 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"1"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 2650)
+
+
+Started POST "/users/1/unfollow" for 127.0.0.1 at 2023-09-04 15:32:56 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mFollow Destroy (0.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `unfollow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (15.61ms)
+Completed 200 OK in 52ms (Views: 16.0ms | ActiveRecord: 13.3ms | Allocations: 26334)
+
+
+Started POST "/users/1/unfollow" for 127.0.0.1 at 2023-09-04 15:33:44 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.5ms | Allocations: 12343)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/users_controller.rb:44:in `unfollow'
+Started POST "/users/2/unfollow" for 127.0.0.1 at 2023-09-04 15:33:52 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mFollow Destroy (0.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `follow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 3], ["followee_id", 2], ["created_at", "2023-09-04 10:03:52.218705"], ["updated_at", "2023-09-04 10:03:52.218705"]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MDg6NTIuMjUyWiIsInB1ciI6ImJsb2Jfa2V5In19--79c11e298ee5ab35573558ed032e6c05f13cb3c1/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:39:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (30.93ms)
+Completed 500 Internal Server Error in 69ms (Views: 30.3ms | ActiveRecord: 23.5ms | Allocations: 33352)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:45:in `unfollow'
+Started POST "/users/2/unfollow" for 127.0.0.1 at 2023-09-04 15:34:19 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mFollow Destroy (0.3ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MDk6MTkuNTY3WiIsInB1ciI6ImJsb2Jfa2V5In19--88a83ab438689340a32ecd5802953dabe30c5180/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `unfollow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (34.28ms)
+Completed 200 OK in 77ms (Views: 34.7ms | ActiveRecord: 14.1ms | Allocations: 35585)
+
+
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+Started DELETE "/users/2/unfollow" for 127.0.0.1 at 2023-09-04 15:34:56 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/unfollow"):
+  
+Started DELETE "/users/2/unfollow" for 127.0.0.1 at 2023-09-04 15:35:26 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/unfollow"):
+  
+Started DELETE "/users/2/unfollow" for 127.0.0.1 at 2023-09-04 15:35:37 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/unfollow"):
+  
+Started DELETE "/follows/2" for 127.0.0.1 at 2023-09-04 15:36:14 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.4ms | Allocations: 12452)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/users_controller.rb:44:in `unfollow'
+Started DELETE "/follows/1" for 127.0.0.1 at 2023-09-04 15:38:42 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 2180)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/users_controller.rb:44:in `unfollow'
+Started POST "/follows/2" for 127.0.0.1 at 2023-09-04 15:38:49 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 3], ["followee_id", 2], ["created_at", "2023-09-04 10:08:49.547683"], ["updated_at", "2023-09-04 10:08:49.547683"]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MTM6NDkuNTk5WiIsInB1ciI6ImJsb2Jfa2V5In19--dce74459a746242c936cd266955a781be4599fdb/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:39:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (33.86ms)
+Completed 200 OK in 78ms (Views: 40.0ms | ActiveRecord: 19.2ms | Allocations: 36061)
+
+
+Started DELETE "/follows/2" for 127.0.0.1 at 2023-09-04 15:38:55 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mFollow Destroy (0.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MTM6NTUuMTE1WiIsInB1ciI6ImJsb2Jfa2V5In19--af8a71565dd1630c1975e5380c5bd74d3a4668e6/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `unfollow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.53ms)
+Completed 200 OK in 28ms (Views: 5.5ms | ActiveRecord: 16.3ms | Allocations: 6701)
+
+
+Started DELETE "/follows/1" for 127.0.0.1 at 2023-09-04 15:39:35 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 2169)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/users_controller.rb:44:in `unfollow'
+Started DELETE "/follows/2" for 127.0.0.1 at 2023-09-04 15:39:43 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 2168)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/users_controller.rb:44:in `unfollow'
+Started POST "/follows/2" for 127.0.0.1 at 2023-09-04 15:40:03 +0530
+Processing by UsersController#follow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `follow'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."followee_id" = ? AND "follows"."follower_id" = ? LIMIT ?[0m  [["followee_id", 2], ["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mFollow Create (0.2ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 3], ["followee_id", 2], ["created_at", "2023-09-04 10:10:03.090677"], ["updated_at", "2023-09-04 10:10:03.090677"]]
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `follow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MTU6MDMuMTA2WiIsInB1ciI6ImJsb2Jfa2V5In19--63bf12e51319f5877315df8a5e44b5ce1b2906a9/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:39:in `follow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.55ms)
+Completed 200 OK in 26ms (Views: 5.7ms | ActiveRecord: 11.3ms | Allocations: 9761)
+
+
+Started DELETE "/follows/2" for 127.0.0.1 at 2023-09-04 15:40:07 +0530
+Processing by UsersController#unfollow as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43:in `unfollow'
+  [1m[36mFollow Load (0.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mFollow Destroy (0.2ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `unfollow'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MTU6MDcuNTY1WiIsInB1ciI6ImJsb2Jfa2V5In19--e44502688e9d86be7fb598db8410873e2af3baed/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:45:in `unfollow'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.32ms)
+Completed 200 OK in 21ms (Views: 5.4ms | ActiveRecord: 11.0ms | Allocations: 6656)
+
+
+Started POST "/signup?email=ap@gmail.com&password=[FILTERED]&fname=Akshat&lname=Pegwar&profile_picture" for 127.0.0.1 at 2023-09-04 15:43:11 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]", "lname"=>"Pegwar", "fname"=>"Akshat", "profile_picture"=>nil}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 246ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 5632)
+
+
+Started POST "/signup?email=ap@gmail.com&password=[FILTERED]&fname=Akshat&lname=Pegwar&profile_picture" for 127.0.0.1 at 2023-09-04 15:43:21 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"ap@gmail.com", "password"=>"[FILTERED]", "lname"=>"Pegwar", "fname"=>"Akshat", "profile_picture"=>nil}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 400 Bad Request in 253ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3093)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-09-04 15:43:37 +0530
+Processing by UsersController#signup as */*
+  Parameters: {"email"=>"ramkushwah@shriffle.com", "password"=>"[FILTERED]", "lname"=>"kushwah", "fname"=>"ram", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007f631240b1a0 @tempfile=#<Tempfile:/tmp/RackMultipart20230904-15129-j53skp.jpg>, @content_type="image/jpeg", @original_filename="hd.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"hd.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ramkushwah@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "fname", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "ramkushwah@shriffle.com"], ["password_digest", "[FILTERED]"], ["fname", "ram"], ["lname", "kushwah"], ["created_at", "2023-09-04 10:13:38.163495"], ["updated_at", "2023-09-04 10:13:38.163495"]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "nilg9ycdatfbqq9nl9atop0devvy"], ["filename", "hd.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 80725], ["checksum", "M/BPtCCZR+4vCS35gAEWDg=="], ["created_at", "2023-09-04 10:13:38.170357"]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profile_picture"], ["record_type", "User"], ["record_id", 4], ["blob_id", 2], ["created_at", "2023-09-04 10:13:38.172193"]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-09-04 10:13:38.173379"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+  [1m[36mTRANSACTION (156.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `signup'
+[36m  Disk Storage (0.5ms) [0m[32mUploaded file to key: nilg9ycdatfbqq9nl9atop0devvy (checksum: M/BPtCCZR+4vCS35gAEWDg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: b533b401-9ea6-478e-b2df-6acbd1ec92c3) to Async(default) with arguments: #<GlobalID:0x00007f6312555a60 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/2>>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 201 Created in 420ms (Views: 0.6ms | ActiveRecord: 158.1ms | Allocations: 12577)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3] Performing ActiveStorage::AnalyzeJob (Job ID: b533b401-9ea6-478e-b2df-6acbd1ec92c3) from Async(default) enqueued at 2023-09-04T10:13:38Z with arguments: #<GlobalID:0x00007f631250a510 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3]   [1m[36mTRANSACTION (15.4ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b533b401-9ea6-478e-b2df-6acbd1ec92c3] Performed ActiveStorage::AnalyzeJob (Job ID: b533b401-9ea6-478e-b2df-6acbd1ec92c3) from Async(default) in 99.57ms
+Started POST "/login" for 127.0.0.1 at 2023-09-04 15:44:49 +0530
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"ramkushwah@shriffle.com", "password"=>"[FILTERED]"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ramkushwah@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 240ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1103)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2023-09-04 15:45:26 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 3]]
+  ↳ app/controllers/users_controller.rb:49:in `show'
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/controllers/users_controller.rb:50:in `show'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (?, ?, ?)[0m  [["user_id", 1], ["user_id", 2], ["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers] No serializer found for resource: #<Comment id: 12, content: "Nice", user_id: 3, post_id: 15, created_at: "2023-09-03 21:57:20.175763000 +0000", updated_at: "2023-09-03 21:57:20.175763000 +0000">
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 15]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MjA6MjYuMzQyWiIsInB1ciI6ImJsb2Jfa2V5In19--4f4475eaa2db542074da29506e923b9d58df7e18/img.jpg)[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] No serializer found for resource: #<Comment id: 12, content: "Nice", user_id: 3, post_id: 15, created_at: "2023-09-03 21:57:20.175763000 +0000", updated_at: "2023-09-03 21:57:20.175763000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (61.22ms)
+Completed 200 OK in 68ms (Views: 60.4ms | ActiveRecord: 2.9ms | Allocations: 52458)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-09-04 15:45:37 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/4" for 127.0.0.1 at 2023-09-04 15:45:41 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "follower_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 3]]
+  ↳ app/controllers/users_controller.rb:49:in `show'
+  [1m[36mUser Pluck (0.2ms)[0m  [1m[34mSELECT "followee_id" FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/controllers/users_controller.rb:50:in `show'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" IN (?, ?, ?)[0m  [["user_id", 1], ["user_id", 2], ["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers] No serializer found for resource: #<Comment id: 12, content: "Nice", user_id: 3, post_id: 15, created_at: "2023-09-03 21:57:20.175763000 +0000", updated_at: "2023-09-03 21:57:20.175763000 +0000">
+[active_model_serializers]   [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 15]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:53:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTA6MjA6NDEuODM5WiIsInB1ciI6ImJsb2Jfa2V5In19--af593ffa3dfa0efbd5b311bb4ff25541d51484f7/img.jpg)[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] No serializer found for resource: #<Comment id: 12, content: "Nice", user_id: 3, post_id: 15, created_at: "2023-09-03 21:57:20.175763000 +0000", updated_at: "2023-09-03 21:57:20.175763000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.94ms)
+Completed 200 OK in 51ms (Views: 43.7ms | ActiveRecord: 2.3ms | Allocations: 27864)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-09-04 15:47:33 +0530
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `index'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.98ms)
+Completed 200 OK in 35ms (Views: 16.8ms | ActiveRecord: 2.0ms | Allocations: 21120)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-09-04 15:47:44 +0530
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: nilg9ycdatfbqq9nl9atop0devvy (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibWxzWnpsNVkyUmhkR1ppY1hFNWJtdzVZWFJ2Y0RCa1pYWjJlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1oa0xtcHdaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuYUdRdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMy0wOS0wNFQxMDoyMjo0NC4zNzNaIiwicHVyIjoiYmxvYl9rZXkifX0=--262f8dcaa1ea1c4ff0e48221cefda8c39d1c891f/hd.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `index'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.82ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 1.8ms | Allocations: 12532)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibWxzWnpsNVkyUmhkR1ppY1hFNWJtdzVZWFJ2Y0RCa1pYWjJlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpTjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1oa0xtcHdaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuYUdRdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMy0wOS0wNFQxMDoyMjo0NC4zNzNaIiwicHVyIjoiYmxvYl9rZXkifX0=--262f8dcaa1ea1c4ff0e48221cefda8c39d1c891f/hd.jpg" for 127.0.0.1 at 2023-09-04 15:47:48 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"hd"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 230)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-09-04 16:07:33 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/signup"):
+  
+Started POST "/signup" for 127.0.0.1 at 2023-09-04 16:08:48 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/signup"):
+  
+Started POST "/users" for 127.0.0.1 at 2023-09-04 16:11:31 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ramkushwah@shriffle.com", "password"=>"[FILTERED]", "lname"=>"kushwah", "fname"=>"ram", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007f631879e6b8 @tempfile=#<Tempfile:/tmp/RackMultipart20230904-15129-k7uiu3.jpg>, @content_type="image/jpeg", @original_filename="hd.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"hd.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ramkushwah@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 290ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 18314)
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2023-09-04 16:11:41 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 12]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mLike Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 13]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mPost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 15]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mPost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 58ms (Views: 0.4ms | ActiveRecord: 14.3ms | Allocations: 30467)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-09-04 16:11:44 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ramkushwah@shriffle.com", "password"=>"[FILTERED]", "lname"=>"kushwah", "fname"=>"ram", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007f631292b810 @tempfile=#<Tempfile:/tmp/RackMultipart20230904-15129-5j77q4.jpg>, @content_type="image/jpeg", @original_filename="hd.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"hd.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ramkushwah@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 400 Bad Request in 248ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 3187)
+
+
+Started DELETE "/users/4" for 127.0.0.1 at 2023-09-04 16:11:49 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 914)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:13:in `authenticate_request'
+Started POST "/users" for 127.0.0.1 at 2023-09-04 16:12:07 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ramkushwah@shriffle.com", "password"=>"[FILTERED]", "lname"=>"kushwah", "fname"=>"ram", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007f63121b62d8 @tempfile=#<Tempfile:/tmp/RackMultipart20230904-15129-lbdt4h.jpg>, @content_type="image/jpeg", @original_filename="hd.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"hd.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ramkushwah@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 400 Bad Request in 249ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 3181)
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2023-09-04 16:13:03 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 894)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:13:in `authenticate_request'
+Started DELETE "/users/4" for 127.0.0.1 at 2023-09-04 16:13:17 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 894)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:13:in `authenticate_request'
+Started DELETE "/users/2" for 127.0.0.1 at 2023-09-04 16:13:23 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 894)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:13:in `authenticate_request'
+Started DELETE "/users/3" for 127.0.0.1 at 2023-09-04 16:13:32 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mLike Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 7e65f694-68ce-4b17-b91e-730f36780a98) to Async(default) with arguments: #<GlobalID:0x00007f63125f5ec0 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/2>>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 35ms (Views: 0.5ms | ActiveRecord: 12.5ms | Allocations: 16258)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98] Performing ActiveStorage::PurgeJob (Job ID: 7e65f694-68ce-4b17-b91e-730f36780a98) from Async(default) enqueued at 2023-09-04T10:43:32Z with arguments: #<GlobalID:0x00007f631269fb78 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 2]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mActiveStorage::Blob Destroy (0.3ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 2]]
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98]   [1m[36mTRANSACTION (11.5ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98] [36m  Disk Storage (0.1ms) [0m[31mDeleted file from key: nilg9ycdatfbqq9nl9atop0devvy[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98] [36m  Disk Storage (0.0ms) [0m[31mDeleted files by key prefix: variants/nilg9ycdatfbqq9nl9atop0devvy/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [7e65f694-68ce-4b17-b91e-730f36780a98] Performed ActiveStorage::PurgeJob (Job ID: 7e65f694-68ce-4b17-b91e-730f36780a98) from Async(default) in 29.05ms
+Started GET "/blocks/2" for 127.0.0.1 at 2023-09-04 16:48:30 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/blocks/2"):
+  
+Started GET "/blocks" for 127.0.0.1 at 2023-09-04 16:48:37 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/blocks"):
+  
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 16:48:43 +0530
+Processing by BlocksController#create as */*
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1155)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=4):
+  
+app/controllers/application_controller.rb:13:in `authenticate_request'
+Started POST "/users" for 127.0.0.1 at 2023-09-04 16:48:54 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ramkushwah@shriffle.com", "password"=>"[FILTERED]", "lname"=>"kushwah", "fname"=>"ram", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x00007f6312440c88 @tempfile=#<Tempfile:/tmp/RackMultipart20230904-15129-g6i5d0.jpg>, @content_type="image/jpeg", @original_filename="hd.jpg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"hd.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ramkushwah@shriffle.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "fname", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "ramkushwah@shriffle.com"], ["password_digest", "[FILTERED]"], ["fname", "ram"], ["lname", "kushwah"], ["created_at", "2023-09-04 11:18:54.600065"], ["updated_at", "2023-09-04 11:18:54.600065"]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "hvc8lj4we88v4a8vs05s8h4lv3mo"], ["filename", "hd.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 80725], ["checksum", "M/BPtCCZR+4vCS35gAEWDg=="], ["created_at", "2023-09-04 11:18:54.605343"]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profile_picture"], ["record_type", "User"], ["record_id", 3], ["blob_id", 3], ["created_at", "2023-09-04 11:18:54.607965"]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-09-04 11:18:54.609900"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:63:in `create'
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:63:in `create'
+[36m  Disk Storage (1.1ms) [0m[32mUploaded file to key: hvc8lj4we88v4a8vs05s8h4lv3mo (checksum: M/BPtCCZR+4vCS35gAEWDg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 38f8532a-2897-4412-ab00-9251acf443b7) to Async(default) with arguments: #<GlobalID:0x00007f63127fe7a8 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/3>>
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 201 Created in 275ms (Views: 0.8ms | ActiveRecord: 13.2ms | Allocations: 10438)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7] Performing ActiveStorage::AnalyzeJob (Job ID: 38f8532a-2897-4412-ab00-9251acf443b7) from Async(default) enqueued at 2023-09-04T11:18:54Z with arguments: #<GlobalID:0x00007f631283c850 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7]   [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [38f8532a-2897-4412-ab00-9251acf443b7] Performed ActiveStorage::AnalyzeJob (Job ID: 38f8532a-2897-4412-ab00-9251acf443b7) from Async(default) in 20.87ms
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 16:49:51 +0530
+Processing by BlocksController#create as */*
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms | Allocations: 9345)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: nil, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 16:50:39 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"blocked_id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :blocked_id. Context: { controller: BlocksController, action: create, request: #<ActionDispatch::Request:0x00007f63120f6a50>, params: {"blocked_id"=>"2", "controller"=>"blocks", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1139)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: nil, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 16:51:09 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"blocked_id"=>"2", "blocker_id"=>"3"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameters: :blocked_id, :blocker_id. Context: { controller: BlocksController, action: create, request: #<ActionDispatch::Request:0x00007f63120f9890>, params: {"blocked_id"=>"2", "blocker_id"=>"3", "controller"=>"blocks", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1144)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: nil, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 16:54:27 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/blocks"):
+  
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 16:55:12 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: BlocksController, action: create, request: #<ActionDispatch::Request:0x00007f631293d858>, params: {"controller"=>"blocks", "action"=>"create", "id"=>"2"} }[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.2ms | Allocations: 12127)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: nil, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 16:57:16 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.3ms | Allocations: 12118)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: 2, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 16:57:49 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.1ms | Allocations: 12117)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: 2, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 16:59:22 +0530
+Processing by BlocksController#block as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.4ms | Allocations: 12115)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: 2, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `block'
+Started POST "/blocks/1" for 127.0.0.1 at 2023-09-04 16:59:33 +0530
+Processing by BlocksController#block as */*
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 1104)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: 1, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `block'
+Started GET "/blocks" for 127.0.0.1 at 2023-09-04 17:01:33 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for BlocksController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/blocks" for 127.0.0.1 at 2023-09-04 17:02:21 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/blocks"):
+  
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 17:02:25 +0530
+Processing by BlocksController#create as */*
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.3ms | Allocations: 12063)
+
+
+  
+NoMethodError (undefined method `user=' for #<Block id: nil, blocker_id: nil, blocked_id: nil, created_at: nil, updated_at: nil>):
+  
+app/controllers/blocks_controller.rb:6:in `create'
+Started POST "/blocks" for 127.0.0.1 at 2023-09-04 17:03:17 +0530
+Processing by BlocksController#create as */*
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocker_id" IS NULL AND "blocks"."blocked_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocked_id" IS NULL AND "blocks"."blocker_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 32ms (Views: 1.1ms | ActiveRecord: 1.8ms | Allocations: 18888)
+
+
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 17:03:39 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/blocks/2"):
+  
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 17:04:24 +0530
+  
+AbstractController::ActionNotFound (The action 'block' could not be found for BlocksController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 17:04:56 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: BlocksController, action: create, request: #<ActionDispatch::Request:0x00007f6318dd10f8>, params: {"controller"=>"blocks", "action"=>"create", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocker_id" IS NULL AND "blocks"."blocked_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocked_id" IS NULL AND "blocks"."blocker_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 400 Bad Request in 29ms (Views: 1.4ms | ActiveRecord: 1.5ms | Allocations: 18850)
+
+
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 17:05:14 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+[31mUnpermitted parameter: :id. Context: { controller: BlocksController, action: create, request: #<ActionDispatch::Request:0x00007f6312726600>, params: {"controller"=>"blocks", "action"=>"create", "id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocker_id" IS NULL AND "blocks"."blocked_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocked_id" IS NULL AND "blocks"."blocker_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/blocks_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 400 Bad Request in 7ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 5054)
+
+
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 17:07:09 +0530
+  
+SyntaxError (/home/hp/Desktop/FB5/app/controllers/blocks_controller.rb:9: else without rescue is useless
+/home/hp/Desktop/FB5/app/controllers/blocks_controller.rb:12: syntax error, unexpected `end'):
+  
+app/controllers/blocks_controller.rb:9: else without rescue is useless
+app/controllers/blocks_controller.rb:12: syntax error, unexpected `end'
+app/controllers/blocks_controller.rb:9: else without rescue is useless
+app/controllers/blocks_controller.rb:12: syntax error, unexpected `end'
+app/controllers/blocks_controller.rb:9: else without rescue is useless
+app/controllers/blocks_controller.rb:12: syntax error, unexpected `end'
+Started POST "/blocks/2" for 127.0.0.1 at 2023-09-04 17:07:54 +0530
+Processing by BlocksController#create as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blocks_controller.rb:6:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:6:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocker_id" = ? AND "blocks"."blocked_id" = ? LIMIT ?[0m  [["blocker_id", 3], ["blocked_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:6:in `create'
+  [1m[36mBlock Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "blocks" WHERE "blocks"."blocked_id" = ? AND "blocks"."blocker_id" = ? LIMIT ?[0m  [["blocked_id", 2], ["blocker_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:6:in `create'
+  [1m[36mBlock Create (0.2ms)[0m  [1m[32mINSERT INTO "blocks" ("blocker_id", "blocked_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["blocker_id", 3], ["blocked_id", 2], ["created_at", "2023-09-04 11:37:55.001382"], ["updated_at", "2023-09-04 11:37:55.001382"]]
+  ↳ app/controllers/blocks_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blocks_controller.rb:6:in `create'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `image'
+[active_model_serializers] [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 16zxpx1gfckapl9hof29015dflnx (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVFo2ZUhCNE1XZG1ZMnRoY0d3NWFHOW1Namt3TVRWa1pteHVlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFp5NXFjR2NpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjJsdFp5NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDktMDRUMTE6NDI6NTUuMDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--ddd42f6f25ad4b8a28c6355979bb100a746821ab/img.jpg)[0m
+[active_model_serializers]   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/blocks_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (31.62ms)
+Completed 200 OK in 83ms (Views: 31.7ms | ActiveRecord: 14.5ms | Allocations: 40332)
+
+
+Started DELETE "/blocks/2" for 127.0.0.1 at 2023-09-04 17:10:01 +0530
+Processing by BlocksController#destroy as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.0ms | Allocations: 9558)
+
+
+  
+NoMethodError (undefined method `blocks' for #<User id: 3, email: "ramkushwah@shriffle.com", password_digest: [FILTERED], fname: "ram", lname: "kushwah", created_at: "2023-09-04 11:18:54.600065000 +0000", updated_at: "2023-09-04 11:18:54.609900000 +0000">):
+  
+app/controllers/blocks_controller.rb:11:in `destroy'
+Started DELETE "/blocks/2" for 127.0.0.1 at 2023-09-04 17:10:35 +0530
+Processing by BlocksController#destroy as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "blocks" ON "users"."id" = "blocks"."blocked_id" WHERE "blocks"."blocker_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["blocker_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:11:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:13:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: a9ea06a6-b88e-47cf-8a9d-09681f9db2b0) to Async(default) with arguments: #<GlobalID:0x00007f6311917550 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/1>>
+Completed 200 OK in 81ms (Views: 0.9ms | ActiveRecord: 16.9ms | Allocations: 46747)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0] Performing ActiveStorage::PurgeJob (Job ID: a9ea06a6-b88e-47cf-8a9d-09681f9db2b0) from Async(default) enqueued at 2023-09-04T11:40:35Z with arguments: #<GlobalID:0x00007f63118edb38 @uri=#<URI::GID gid://facebook/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mActiveStorage::Attachment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mActiveStorage::Blob Destroy (0.2ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0]   [1m[36mTRANSACTION (11.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0] [36m  Disk Storage (0.1ms) [0m[31mDeleted file from key: 16zxpx1gfckapl9hof29015dflnx[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0] [36m  Disk Storage (0.0ms) [0m[31mDeleted files by key prefix: variants/16zxpx1gfckapl9hof29015dflnx/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [a9ea06a6-b88e-47cf-8a9d-09681f9db2b0] Performed ActiveStorage::PurgeJob (Job ID: a9ea06a6-b88e-47cf-8a9d-09681f9db2b0) from Async(default) in 39.12ms
+Started DELETE "/blocks/2" for 127.0.0.1 at 2023-09-04 17:11:44 +0530
+Processing by BlocksController#destroy as */*
+  Parameters: {"id"=>"2"}
+DEPRECATION WARNING: ActiveStorage::Current.host= is deprecated, instead use ActiveStorage::Current.url_options= (called from block in <class:ApplicationController> at /home/hp/Desktop/FB5/app/controllers/application_controller.rb:5)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "blocks" ON "users"."id" = "blocks"."blocked_id" WHERE "blocks"."blocker_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["blocker_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/blocks_controller.rb:11:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 404 Not Found in 35ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 14792)
+
+
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (content LIKE '%Hello%')[0m
